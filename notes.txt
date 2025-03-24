@@ -1,0 +1,14 @@
+clone ionic-framework-main
+./ionic-framework/core/package.json > "@stencil/core": "4.28.2",
+
+cd ionic-framework
+nvm use 16
+npm i
+npx lerna bootstrap
+npx lerna run build
+
+cd ionic-framework/packages/angular/dist
+npm pack
+
+cd ./
+npm i ./ionic-framework/packages/angular/dist/ionic-angular-8.5.1.tgz
